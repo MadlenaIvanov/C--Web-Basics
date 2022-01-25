@@ -17,6 +17,7 @@ namespace BasicWebServer.Server.HTTP
         public string this[string name]
             => cookies[name].Value;
 
+
         public void Add(string name, string value)
             => cookies[name] = new Cookie(name, value);
 
