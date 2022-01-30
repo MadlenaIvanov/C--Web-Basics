@@ -1,4 +1,5 @@
-﻿using BasicWebServer.Server.Controllers;
+﻿using BasicWebServer.Demo.Models;
+using BasicWebServer.Server.Controllers;
 using BasicWebServer.Server.HTTP;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,6 @@ namespace BasicWebServer.Demo.Controllers
 {
     public class HomeController : Controller
     {
-        private const string HtmlForm = @"<form action='/HTML' method='POST'>
-            Name: <input type='text' name='Name'/>
-            Age: <input type='number' name ='Age'/>
-            <input type='submit' value ='Save' />
-        </form>";
-
         private const string DownloadForm = @"<form action='/Content' method='POST'>
             <input type='submit' value ='Download Sites Content' /> 
         </form>";
@@ -32,23 +27,27 @@ namespace BasicWebServer.Demo.Controllers
 
         public Response Index() => Text("Hello from the server!");
         public Response Redirect() => Redirect("https://softuni.org/");
-        public Response Html() => Html(HomeController.HtmlForm);
+        //public Response Html() => Html(HomeController.HtmlForm);
+
+        public Response Html() => View();
 
         public Response HtmlFormPost()
         {
-            string formData = string.Empty;
+            string name = Request.Form["Name"];
+            string age = Request.Form["Age"];
 
-            foreach (var (key, value) in this.Request.Form)
+            var model = new FormViewModel()
             {
-                formData += $"{key} - {value}";
-                formData += Environment.NewLine;
-            }
+                Name = name,
+                Age = int.Parse(age)
+            };
 
-            return Text(formData);
+            return View(model);
         }
 
-        public Response Content() => Html(HomeController.DownloadForm);
+        //public Response Content() => Html(HomeController.DownloadForm);
 
+        public Response Content() => View();
         private static async Task DownloadSitesAsTextFile(string filename, string[] urls)
         {
             var downloads = new List<Task<string>>();

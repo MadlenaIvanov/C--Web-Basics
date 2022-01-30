@@ -34,3 +34,7 @@ C:\Users\Mimi\Documents\GitHub\C#-Web-Basics\BasicWebServer.Demo\BasicWebServer.
 C:\Users\Mimi\Documents\GitHub\C#-Web-Basics\BasicWebServer.Demo\BasicWebServer.Demo\obj\Debug\net6.0\ref\BasicWebServer.Demo.dll
 C:\Users\Mimi\Documents\GitHub\C#-Web-Basics\BasicWebServer.Demo\BasicWebServer.Demo\obj\Debug\net6.0\BasicWebServer.Demo.pdb
 C:\Users\Mimi\Documents\GitHub\C#-Web-Basics\BasicWebServer.Demo\BasicWebServer.Demo\obj\Debug\net6.0\BasicWebServer.Demo.genruntimeconfig.cache
+C:\Users\Mimi\Documents\GitHub\C#-Web-Basics\BasicWebServer.Demo\BasicWebServer.Demo\bin\Debug\net6.0\Views\Home\Content.cshtml
+C:\Users\Mimi\Documents\GitHub\C#-Web-Basics\BasicWebServer.Demo\BasicWebServer.Demo\bin\Debug\net6.0\Views\Home\Html.cshtml
+C:\Users\Mimi\Documents\GitHub\C#-Web-Basics\BasicWebServer.Demo\BasicWebServer.Demo\bin\Debug\net6.0\Views\Users\Login.cshtml
+C:\Users\Mimi\Documents\GitHub\C#-Web-Basics\BasicWebServer.Demo\BasicWebServer.Demo\bin\Debug\net6.0\Views\Home\HtmlFormPost.cshtml
