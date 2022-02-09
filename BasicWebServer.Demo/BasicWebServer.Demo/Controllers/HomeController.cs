@@ -1,4 +1,5 @@
 ﻿using BasicWebServer.Demo.Models;
+using BasicWebServer.Server.Attributes;
 using BasicWebServer.Server.Controllers;
 using BasicWebServer.Server.HTTP;
 using System;
@@ -12,25 +13,22 @@ namespace BasicWebServer.Demo.Controllers
 {
     public class HomeController : Controller
     {
-        private const string DownloadForm = @"<form action='/Content' method='POST'>
-            <input type='submit' value ='Download Sites Content' /> 
-        </form>";
-
         private const string FileName = "content.txt";
-
-
 
         public HomeController(Request request) : base(request)
         {
 
         }
 
+        [HttpGet]
         public Response Index() => Text("Hello from the server!");
-        public Response Redirect() => Redirect("https://softuni.org/");
-        //public Response Html() => Html(HomeController.HtmlForm);
 
+        public Response Student(string name, int age) => Text($"I'm {name} and I'm {age} years old");
+
+        public Response Redirect() => Redirect("https://softuni.org/");
         public Response Html() => View();
 
+        [HttpPost]
         public Response HtmlFormPost()
         {
             string name = Request.Form["Name"];
@@ -44,8 +42,6 @@ namespace BasicWebServer.Demo.Controllers
 
             return View(model);
         }
-
-        //public Response Content() => Html(HomeController.DownloadForm);
 
         public Response Content() => View();
         private static async Task DownloadSitesAsTextFile(string filename, string[] urls)
@@ -66,8 +62,7 @@ namespace BasicWebServer.Demo.Controllers
             await System.IO.File.WriteAllTextAsync(filename, responsesString);
         }
 
-        private static async Task<string> DownloadWebSiteContent(
-    string url)
+        private static async Task<string> DownloadWebSiteContent(string url)
         {
             var httpClient = new HttpClient();
             using (httpClient)
@@ -132,7 +127,7 @@ namespace BasicWebServer.Demo.Controllers
                 return Text($"Stored date: {currentDate}!");
             }
 
-            return Text("Current date stored!");
+            return Text("Current date stored!"); 
         }
     }
 }
